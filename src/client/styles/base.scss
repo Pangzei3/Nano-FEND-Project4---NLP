@@ -1,0 +1,19 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 2;
+}
+
+#results {
+    display: flex;
+    border-style: none;
+    border-radius: 25px;
+    font-family: 'Parisienne', cursive;
+    font-size: 2em;
+    padding: 10px;
+    color: #e64f14;
+}
