@@ -33,7 +33,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-const basURL = "https://api.meaningcloud.com/sentiment-2.1?key="
+const baseURL = "https://api.meaningcloud.com/sentiment-2.1?key="
 app.post('/userText', async(req, res) => {
     console.log('req.body ===+>', req.body)
     const response = await fetch(baseURL + application_key + '&lang=en&txt=' + req.body.formText, { method: 'POST' });

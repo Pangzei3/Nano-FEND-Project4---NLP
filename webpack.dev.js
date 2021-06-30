@@ -11,6 +11,8 @@ module.exports = {
         port: 7000,
     },
     output: {
+        //add this path for clean-webpack-plugin
+        path: path.join(__dirname, "dist"),
         libraryTarget: 'var',
         library: 'Client'
             },

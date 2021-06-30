@@ -13,6 +13,8 @@ module.exports = {
     entry: './src/client/index.js',
     mode: 'production',
     output: {
+        //add this path for clean-webpack-plugin
+        path: path.join(__dirname, "dist"),
         libraryTarget: 'var',
         library: 'Client'
             },
@@ -45,7 +47,7 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        // new MiniCssExtractPlugin({ filename: "main.css" }),
+        new MiniCssExtractPlugin({ filename: "main.css" }),
         new WorkboxPlugin.GenerateSW()
     ],
     optimization: {
