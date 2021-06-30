@@ -45,7 +45,8 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
-        new MiniCssExtractPlugin({ filename: "[name].css" })
+        // new MiniCssExtractPlugin({ filename: "main.css" }),
+        new WorkboxPlugin.GenerateSW()
     ],
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],

@@ -20,7 +20,7 @@ app.use(express.static('dist'))
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
+    res.sendFile(path.resolve('dist/index.html'))
     // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
@@ -33,12 +33,14 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
+const basURL = "https://api.meaningcloud.com/sentiment-2.1?key="
 app.post('/userText', async(req, res) => {
-    // console.log('req.body ===+>', req.body)
-    const response = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${application_key}&url=${req.body.formText}&lang=en`);
+    console.log('req.body ===+>', req.body)
+    const response = await fetch(baseURL + application_key + '&lang=en&txt=' + req.body.formText, { method: 'POST' });
+    console.log(baseURL + application_key + '&lang=en&txt=' + req.body.formText)
     try {
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         res.send(data);
       }catch (error) {
       console.log("error", error);

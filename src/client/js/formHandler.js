@@ -7,7 +7,8 @@ function handleSubmit(event) {
     if (Client.checkForName(formText)) {
         fetch('http://localhost:8081/userText', {
             method: 'POST',
-            credentials: 'same-origin',
+            // credentials: 'same-origin',
+            cache: "no-cache",
             headers: {
                 'Content-Type': 'application/json',
             },

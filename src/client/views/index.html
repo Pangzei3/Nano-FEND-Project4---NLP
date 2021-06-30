@@ -2,46 +2,51 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="https://bootswatch.com/4/cosmo/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <title>Test</title>
-        <link rel="stylesheet" href="/styles/resets.scss">
-        <link rel="stylesheet" href="/styles/base.scss">
-        <link rel="stylesheet" href="/styles/header.scss">
-        <link rel="stylesheet" href="/styles/form.scss">
-        <link rel="stylesheet" href="/styles/footer.scss">
     </head>
 
     <body>
 
-        <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
+        <header class="navbar navbar-dark bg-primary mb-3">
+            <div class="container">
+                <div class="navbar-brand logo">
+                SMART NLP
+                </div>
+                <div class="navbar-brand">
+                Artical analysis with Natural Language Processing
+                </div>
             </div>
         </header>
 
         <main>
-            <section>
-                <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Chient.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
+            <section class="container postsContainer">
+                <div class="card card-body card-form">
+                    <form onsubmit="return handleSubmit(event)">
+                        <input class="form-control form-group" id="name" type="text" name="input" value=""  placeholder="Please enter url to an article">
+                        <button class="post-submit btn btn-primary btn-block" type="submit" name="" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)"> submit </button>
+                    </form>
+                </div>
             </section>
-
-            <section>
-                <strong>Form Results:</strong>
-                <div id="results"></div>
+            <section class="container postsContainer">
+                <div class="card card-body card-form">
+                    <strong>Artical Analysis Results:</strong>
+                    <div class="form-control form-group" id="results"></div>
+                </div>
             </section>
         </main>
 
-        <footer>
-            <p>This is a footer</p>
+        <footer class="mt-5 p-3 text-center bg-light">
+            <p>MNS@copy</p>
         </footer>
         <script>
             if ('serviceWorker' in navigator) {
                 window.addEventListener('load',()=> {
-                    navigator.serviceWorker.register('/service-worker.js');
+                    navigator.serviceWorker
+                    .register('/service-worker.js')
+                    .then(reg => console.log('Service Worker: Registered!'))
+                    .catch(err => console.log('Error ===>', err));
                 });
             }
         </script>
